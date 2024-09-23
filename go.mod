@@ -1,4 +1,4 @@
-module github.com/cpunion/video-downloader
+module github.com/cpunion/youtube-downloader
 
 go 1.21
 

@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cpunion/video-downloader/progress"
+	"github.com/cpunion/youtube-downloader/progress"
 	"github.com/kkdai/youtube/v2"
 )
 
@@ -220,11 +220,7 @@ func (yd *YouTubeDownloader) mergeVideoAudio(videoFilename, audioFilename, outpu
 		"-y",
 		"-i", videoFilename,
 		"-i", audioFilename,
-		"-c:v", "libx264",
-		"-preset", "medium",
-		"-crf", "23",
-		"-c:a", "aac",
-		"-b:a", "128k",
+		"-c", "copy",
 		"-movflags", "+faststart",
 		"-progress", "pipe:1",
 		outputFilename,
@@ -258,10 +254,10 @@ func (yd *YouTubeDownloader) mergeVideoAudio(videoFilename, audioFilename, outpu
 
 	err = cmd.Wait()
 	if err != nil {
-		return fmt.Errorf("failed to merge and encode video and audio: %w", err)
+		return fmt.Errorf("failed to merge video and audio: %w", err)
 	}
 
-	fmt.Println("\nVideo and audio merged and encoded successfully.")
+	fmt.Println("\nVideo and audio merged successfully.")
 	return nil
 }
 

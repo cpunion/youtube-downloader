@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cpunion/video-downloader/extractor"
+	"github.com/cpunion/youtube-downloader/extractor"
 )
 
 func main() {
